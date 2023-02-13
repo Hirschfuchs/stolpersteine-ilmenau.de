@@ -1,0 +1,25 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:base"],
+  "description": "Renovate-Konfiguration für das Frontend der Ilmenauer Stolpersteinseite",
+  "labels": ["👷 renovate"],
+  "prHourlyLimit": 20,
+  "recreateClosed": true,
+  "commitMessagePrefix": "⬆️ #5: ",
+  "commitMessageAction": "Upgrade",
+  "commitMessageTopic": "Abhängigkeit {{depName}}",
+  "commitMessageExtra": "auf {{#if isPinDigest}}{{{newDigestShort}}}{{else}}{{#if isMajor}}{{prettyNewMajor}}{{else}}{{#if isSingleVersion}}{{prettyNewVersion}}{{else}}{{#if newValue}}{{{newValue}}}{{else}}{{{newDigestShort}}}{{/if}}{{/if}}{{/if}}{{/if}}",
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["pin"],
+      "commitMessagePrefix": "📌 #5: ",
+      "commitMessageAction": "Pinne",
+      "addLabels": ["pin"]
+    },
+    {
+      "matchUpdateTypes": ["rollback"],
+      "commitMessagePrefix": "⬇️ #5: ",
+      "commitMessageAction": "Downgrade"
+    }
+  ]
+}
